@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
+
 
 
 const AllStudents = () => {
@@ -38,7 +39,7 @@ const AllStudents = () => {
                                 <td>{student.address}</td>
                                 <td>{student.birth}</td>
                                 <td>{student.phone}</td>
-                                <td className="text-xl"><IoEyeOutline /></td>
+                                <Link to={`/allStudents/${student._id}`}><td className="text-xl"><IoEyeOutline /></td></Link>
                             </tr>)
                         }
 
