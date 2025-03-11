@@ -1,9 +1,9 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddStudent = () => {
     const handleAddStudent = (e) => {
         e.preventDefault();
-        console.log('save btn click');
         const form =e.target;
         // student info
         const name= form.name.value;
@@ -23,7 +23,25 @@ const AddStudent = () => {
         const fatherReligion= form.fatherReligion.value;
         const photoURL= form.photoURL.value;
 
-        console.log(fatherName, motherName, email, phone, fatherOccupation, address, fatherReligion, photoURL);
+        const student ={name,gender, classes, birth,blood, religion,addmission,fatherName,
+             motherName, email, phone, fatherOccupation, address, fatherReligion, photoURL};
+        fetch('http://localhost:8000/students', {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(student)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.insertedId){
+                Swal.fire({
+                    title: "Student Added Successfully !",
+                    icon: "success",
+                    draggable: true
+                  });
+            }
+        })
     }
     return (
         <div>

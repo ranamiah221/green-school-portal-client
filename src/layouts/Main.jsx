@@ -8,7 +8,7 @@ const Main = () => {
     return (
         <>
             <div className="flex justify-between h-20 shadow-xl ">
-                <div className="w-48 bg-red-500 p-2">
+                <div className="w-48 bg-red-400 p-2">
                     <img className="w-16" src={logo} alt="" />
                 </div>
                 <div className="flex-1/2 p-5  flex justify-between items-center">
@@ -21,7 +21,7 @@ const Main = () => {
             </div>
 
             <div className="flex justify-between">
-                <div className="w-48 bg-green-500 min-h-screen px-5 pt-3"><Sidebar></Sidebar></div>
+                <div className="w-48 bg-green-400 min-h-screen px-5 pt-3"><Sidebar></Sidebar></div>
                 <div className="flex-1/2 p-5"><Outlet></Outlet></div>
             </div>
         </>

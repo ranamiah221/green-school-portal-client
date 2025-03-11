@@ -1,22 +1,40 @@
+import Swal from "sweetalert2";
 
 
 const AddTeacher = () => {
-    const handleAddTeacher=(e)=>{
+    const handleAddTeacher = (e) => {
         e.preventDefault();
         const form = e.target;
-        const firstName= form.firstName.value;
-        const lastName= form.lastName.value;
-        const teacherGender= form.teacherGender.value;
-        const teacherBirth= form.teacherBirth.value;
+        const firstName = form.firstName.value;
+        const lastName = form.lastName.value;
+        const teacherGender = form.teacherGender.value;
+        const teacherBirth = form.teacherBirth.value;
         const teacherBlood = form.teacherBlood.value;
         const teacherReligion = form.teacherReligion.value;
         const teacherEmail = form.teacherEmail.value;
-        const teacherPhone= form.teacherPhone.value;
+        const teacherPhone = form.teacherPhone.value;
         const role = form.role.value;
-        const teacherAddress= form.teacherAddress.value;
+        const teacherAddress = form.teacherAddress.value;
         const entry = form.entry.value;
-        const teacherPhotoURL= form.teacherPhotoURL.value;
-console.log(firstName, lastName, teacherGender,teacherBirth,teacherBlood,teacherReligion, teacherEmail, teacherPhone, teacherAddress,role, entry,teacherPhotoURL);
+        const teacherPhotoURL = form.teacherPhotoURL.value;
+        const teacher = { firstName, lastName, teacherGender, teacherBirth, teacherBlood, teacherReligion, teacherEmail, teacherPhone, teacherAddress, role, entry, teacherPhotoURL };
+        fetch('http://localhost:8000/teachers', {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(teacher)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Teacher Added Successfully !",
+                        icon: "success",
+                        draggable: true
+                    });
+                }
+            })
 
 
 
@@ -75,10 +93,10 @@ console.log(firstName, lastName, teacherGender,teacherBirth,teacherBlood,teacher
                             <option value={'Teacher'}>Teacher</option>
                             <option value={'Assistant Teacher'}>Assistant Teacher</option>
                             <option value={'Senior Lecturer'}>Senior Teacher</option>
-                            <option value={'Assistant Head Teacher'}>Assistant Head Teacher</option>  
+                            <option value={'Assistant Head Teacher'}>Assistant Head Teacher</option>
                             <option value={'Head Teacher'}>Head Teacher</option>
-                            
-                            
+
+
                         </select>
                     </fieldset>
                     <fieldset>
