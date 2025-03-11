@@ -1,15 +1,16 @@
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
     return (
         <div className="">
             <ul className="menu">
-                <li><a>Dashboard</a></li>
+                <li><NavLink to={'/'}>Dashboard</NavLink></li>
                 <li>
                     <details close>
                         <summary>Students</summary>
                         <ul>
-                            <li><a>Add Students</a></li>
-                            <li><a>All Students</a></li>
+                            <li><NavLink to={'/addStudent'}>Add Student</NavLink></li>
+                            <li><NavLink to={'/allStudents'}>All Students</NavLink></li>
                         </ul>
                     </details>
                 </li>
@@ -17,8 +18,8 @@ const Sidebar = () => {
                     <details close>
                         <summary>Teachers</summary>
                         <ul>
-                            <li><a>Add Teacher</a></li>
-                            <li><a>All Teachers</a></li>
+                        <li><NavLink to={'/addTeacher'}>Add Teacher</NavLink></li>
+                        <li><NavLink to={'/allTeachers'}>All Teachers</NavLink></li>
                         </ul>
                     </details>
                 </li>
