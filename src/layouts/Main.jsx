@@ -1,8 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Sidebar from "../Shared/Sidebar";
 import logo from '../assets/green logo.png'
 import { FaRegMessage } from "react-icons/fa6";
 import { IoMdNotificationsOutline } from "react-icons/io";
+
 
 const Main = () => {
     return (
@@ -16,6 +17,24 @@ const Main = () => {
                     <div className="flex justify-between items-center text-xl font-medium gap-3">
                         <FaRegMessage />
                         <IoMdNotificationsOutline />
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                </div>
+                            </div>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                <li>
+                                   <Link to='/signIn'>Sign In</Link> 
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li><a>Logout</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,6 +13,8 @@ import AllStudents from './components/Admin/AllStudents';
 import AddTeacher from './components/Admin/AddTeacher';
 import AllTeachers from './components/Admin/AllTeachers';
 import Student from './components/Admin/Student';
+import SignIn from './components/Admin/SignIn';
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
       path:'/',
       element:<Dashboard></Dashboard>,
     },
+    {
+      path:'/signIn',
+      element:<SignIn></SignIn>,
+    },
+
     {
       path:'addStudent',
       element:<AddStudent></AddStudent>

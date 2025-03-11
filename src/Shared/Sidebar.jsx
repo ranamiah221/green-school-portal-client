@@ -28,6 +28,7 @@ const Sidebar = () => {
                     </ul>
                 </details>
             </li>
+           
         </ul>
 
         </div >

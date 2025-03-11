@@ -1,12 +1,46 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
+import { MdOutlineDeleteOutline } from "react-icons/md";
+import Swal from "sweetalert2";
 
 
 
 const AllStudents = () => {
     const loadedStudent = useLoaderData();
     const [students, setSudent] = useState(loadedStudent)
+    const handleStudentDelete = (_id) => {
+
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:8000/students/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Student has been deleted.",
+                                icon: "success"
+                            });
+                            const remainder = students.filter(student => student._id !== _id)
+                            setSudent(remainder)
+                        }
+                    })
+            }
+        });
+
+    }
 
     return (
         <div>
@@ -25,6 +59,7 @@ const AllStudents = () => {
                             <th>Date of Birth</th>
                             <th>Phone</th>
                             <th>View</th>
+                            <th>Action</th>
 
                         </tr>
                     </thead>
@@ -39,7 +74,10 @@ const AllStudents = () => {
                                 <td>{student.address}</td>
                                 <td>{student.birth}</td>
                                 <td>{student.phone}</td>
-                                <Link to={`/allStudents/${student._id}`}><td className="text-xl"><IoEyeOutline /></td></Link>
+                                <td className="text-xl"><span><Link to={`/allStudents/${student._id}`}></Link></span><IoEyeOutline /></td>
+                                <td onClick={() => handleStudentDelete(student._id)} className="text-xl"><MdOutlineDeleteOutline /></td>
+
+
                             </tr>)
                         }
 
