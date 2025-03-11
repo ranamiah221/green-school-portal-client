@@ -12,6 +12,7 @@ import Dashboard from './components/Admin/Dashboard';
 import AddStudent from './components/Admin/AddStudent';
 import AllStudents from './components/Admin/AllStudents';
 import AddTeacher from './components/Admin/AddTeacher';
+import AllTeachers from './components/Admin/AllTeachers';
 
 const router = createBrowserRouter([
   {
@@ -28,11 +29,17 @@ const router = createBrowserRouter([
     },
     {
       path:'allStudents',
-      element:<AllStudents></AllStudents>
+      element:<AllStudents></AllStudents>,
+      loader:()=>fetch('http://localhost:8000/students')
     },
     {
       path:'addTeacher',
       element:<AddTeacher></AddTeacher>
+    },
+    {
+      path:'allTeachers',
+      element:<AllTeachers></AllTeachers>,
+      loader:()=>fetch('http://localhost:8000/teachers')
     },
   ]
   },

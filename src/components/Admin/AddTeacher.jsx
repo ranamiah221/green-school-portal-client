@@ -17,7 +17,8 @@ const AddTeacher = () => {
         const teacherAddress = form.teacherAddress.value;
         const entry = form.entry.value;
         const teacherPhotoURL = form.teacherPhotoURL.value;
-        const teacher = { firstName, lastName, teacherGender, teacherBirth, teacherBlood, teacherReligion, teacherEmail, teacherPhone, teacherAddress, role, entry, teacherPhotoURL };
+        const subject = form.subject.value;
+        const teacher = { firstName, lastName, teacherGender, teacherBirth, teacherBlood, teacherReligion, teacherEmail, teacherPhone, teacherAddress, role, entry,subject, teacherPhotoURL,  };
         fetch('http://localhost:8000/teachers', {
             method:'POST',
             headers:{
@@ -106,6 +107,16 @@ const AddTeacher = () => {
                     <fieldset>
                         <legend className="fieldset-legend">Entry Date*</legend>
                         <input type="date" name='entry' className="input" placeholder="Enter your name " />
+                    </fieldset>
+                    <fieldset>
+                        <legend className="fieldset-legend">Subject*</legend>
+                        <select name='subject' defaultValue="Bangla" className="select">
+                            <option value={'Bangla'}>Bangla</option>
+                            <option value={'English'}>English</option>
+                            <option value={'Math'}>Math</option>
+                            <option value={'Science'}>Science</option>
+                            <option value={'ICT'}>ICT</option>
+                        </select>
                     </fieldset>
                 </div>
                 <fieldset>

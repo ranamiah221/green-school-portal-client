@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
+import { useLoaderData } from "react-router-dom";
 
 
-const AllStudents = () => {
-    const loadedStudent = useLoaderData();
-    const [students, setSudent] = useState(loadedStudent)
+const AllTeachers = () => {
+    const loadedTeacher = useLoaderData();
+    const [teachers, setTeacher]= useState(loadedTeacher);
 
     return (
         <div>
-            <h2 className="text-2xl font-medium mb-10">All Student Data</h2>
+            <h2 className="text-2xl font-medium mb-10">All Teacher Data {teachers.length}</h2>
             <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                 <table className="table">
                     {/* head */}
@@ -18,8 +18,8 @@ const AllStudents = () => {
                             <th>Id</th>
                             <th>Name</th>
                             <th>Gender</th>
-                            <th>Class</th>
-                            <th>Parents</th>
+                            <th>Role</th>
+                            <th>Subjects</th>
                             <th>Address</th>
                             <th>Date of Birth</th>
                             <th>Phone</th>
@@ -29,15 +29,15 @@ const AllStudents = () => {
                     </thead>
                     <tbody>
                         {
-                            students.map((student, idx) => <tr key={student._id}>
+                            teachers.map((teacher, idx) => <tr key={teacher._id}>
                                 <th>{idx + 1}</th>
-                                <td>{student.name}</td>
-                                <td>{student.gender}</td>
-                                <td>{student.classes}</td>
-                                <td>{student.fatherName}</td>
-                                <td>{student.address}</td>
-                                <td>{student.birth}</td>
-                                <td>{student.phone}</td>
+                                <td>{teacher.firstName} {teacher.firstName}</td>
+                                <td>{teacher.teacherGender}</td>
+                                <td>{teacher.role}</td>
+                                <td defaultValue='All'>{teacher.subject}</td>
+                                <td>{teacher.teacherAddress}</td>
+                                <td>{teacher.teacherBirth}</td>
+                                <td>{teacher.teacherPhone}</td>
                                 <td className="text-xl"><IoEyeOutline /></td>
                             </tr>)
                         }
@@ -45,10 +45,8 @@ const AllStudents = () => {
                     </tbody>
                 </table>
             </div>
-
-
         </div>
     );
 };
 
-export default AllStudents;
+export default AllTeachers;
