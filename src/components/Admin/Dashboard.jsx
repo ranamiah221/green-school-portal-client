@@ -17,7 +17,7 @@ const Dashboard = () => {
         <div>
             <div className='w-64 bg-base-100 shadow h-32 text-xl font-medium rounded-lg text-center px-5 flex justify-between items-center'>
                 
-                <div className='text-2xl text-white w-20 h-20 rounded-full bg-green-500 flex justify-center items-center'>
+                <div className='text-2xl text-white w-20 h-20 rounded-full bg-purple-700 flex justify-center items-center'>
                 <FaPeoplePulling className='' />
                 </div>
                

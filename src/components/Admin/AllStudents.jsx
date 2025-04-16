@@ -74,7 +74,7 @@ const AllStudents = () => {
                                 <td>{student.address}</td>
                                 <td>{student.birth}</td>
                                 <td>{student.phone}</td>
-                                <td className="text-xl"><span><Link to={`/allStudents/${student._id}`}></Link></span><IoEyeOutline /></td>
+                                <Link to={`/allStudents/${student._id}`}><td className="text-xl"><IoEyeOutline className="bottom-0" /></td></Link>
                                 <td onClick={() => handleStudentDelete(student._id)} className="text-xl"><MdOutlineDeleteOutline /></td>
 
 
