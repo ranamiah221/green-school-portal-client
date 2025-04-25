@@ -18,6 +18,7 @@ import Subjects from './components/Admin/Subjects';
 import T_Home from './components/Teachers/T_Home';
 import CreateNew from './components/Teachers/CreateNew/CreateNew';
 import CreateQuestion from './components/Teachers/CreateNew/CreateQuestion';
+import AuthProvider from './context/AuthProvider';
 
 
 
@@ -98,6 +99,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+   <AuthProvider> 
     <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
