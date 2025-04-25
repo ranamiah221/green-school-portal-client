@@ -3,12 +3,22 @@ import Sidebar from "../Shared/Sidebar";
 import logo from '../assets/green logo.png'
 import { FaRegMessage } from "react-icons/fa6";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import useAuth from "../hooks/useAuth";
 
 
 const Main = () => {
+    const { user, logOut } = useAuth()
+    console.log(user)
     const location = useLocation()
     let teacher = location.pathname.split('/')[1].split('_')[0];
-    let dynamicHeader = location.pathname.split('/')[1]
+    const handleLogout = () => {
+        logOut()
+            .then(res)
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
 
     return (
         <>
@@ -33,17 +43,21 @@ const Main = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                <li>
-                                    <Link to='/signIn'>Sign In</Link>
 
-                                </li>
-                                <li>
-                                    <Link to='/signUp'>Sign Up</Link>
+                                {
+                                    user ? <> <li className="btn btn-sm mb-2" onClick={handleLogout}>Logout</li> </> : <>
+                                        <li className="btn btn-sm mb-2">
+                                            <Link to='/signUp'>Sign Up</Link>
+                                        </li>
+                                        <li className="btn btn-sm mb-2">
+                                            <Link to='/signIn'>Sign In</Link>
+                                        </li>
+                                    </>
+                                }
 
-                                </li>
 
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
+                                <li className="btn btn-sm">Settings</li>
+
                             </ul>
                         </div>
                     </div>

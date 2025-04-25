@@ -1,23 +1,52 @@
-import bg from '../../assets/1700317760482.jpg'
+import Lottie from 'lottie-react';
+import loginImage from '../../assets/animation/login.json'
+import SocialLogin from '../../Shared/SocialLogin';
+import useAuth from '../../hooks/useAuth';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+    const {signIn}= useAuth()
+    const location =useLocation()
+    const navigate = useNavigate()
+    const handleLogin =(e)=>{
+        e.preventDefault()
+      const form = e.target;
+      const email= form.email.value;
+      const password = form.password.value;
+      signIn(email, password)
+      .then(res=>{
+        navigate(location?.state ? location.state : '/')
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+
+    }
     return (
-        <div style={{ backgroundImage: `url(${bg})` }} className="hero bg-base-200 min-h-screen">  
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <h1 className="text-5xl font-medium text-center my-5">Login</h1> 
-                    <div className="card-body">
-                        <fieldset className="fieldset">
-                            <label className="fieldset-label">Email</label>
-                            <input type="email" className="input" placeholder="Email" />
-                            <label className="fieldset-label">Password</label>
-                            <input type="password" className="input" placeholder="Password" />
-                            <div><a className="link link-hover">Forgot password?</a></div>
-                            <button className="btn btn-neutral bg-red-400 text-white border-0 mt-4">Login</button>
-                        </fieldset>
+        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero-content flex-col lg:flex-row">
+            <div className="text-center lg:text-left w-96">
+                <Lottie animationData={loginImage}></Lottie>
+            </div>
+            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <form onSubmit={handleLogin} className="card-body">
+                    <fieldset className="fieldset">
+                        <h1 className="text-5xl text-center font-bold my-5">Login now!</h1>
+                        <label className="fieldset-label">Email</label>
+                        <input type="email" name="email" className="input" placeholder="Email" />
+                        <label className="fieldset-label">Password</label>
+                        <input type="password" name='password' className="input" placeholder="Password" />
+                        <button type="submit" className="btn btn-neutral mt-4">Login</button>
+                    </fieldset>
+                    
+                </form>
+                <div className="flex w-full flex-col">
+                        <div className="divider">OR</div>
+                        <SocialLogin></SocialLogin>
                     </div>
-                </div>
-           
+            </div>
         </div>
+    </div>
     );
 };
 

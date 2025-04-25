@@ -1,13 +1,25 @@
 import Lottie from "lottie-react";
 import registerAnimation from '../../assets/animation/register.json'
 import SocialLogin from "../../Shared/SocialLogin";
+import useAuth from "../../hooks/useAuth";
 
 
 const SignUp = () => {
-   const handleRegister = (e)=>{
+   const {createUser}= useAuth()
+    const handleRegister = (e)=>{
     e.preventDefault()
-    console.log("submit clicked");
-   }
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    createUser(email, password)
+    .then(res=>{
+        console.log("user create successfully",res)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+    }
+    
 
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -30,7 +42,7 @@ const SignUp = () => {
                 <div className="flex w-full flex-col">
                         <div className="divider">OR</div>
                         <SocialLogin></SocialLogin>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
