@@ -19,6 +19,7 @@ import T_Home from './components/Teachers/T_Home';
 import CreateNew from './components/Teachers/CreateNew/CreateNew';
 import CreateQuestion from './components/Teachers/CreateNew/CreateQuestion';
 import AuthProvider from './context/AuthProvider';
+import SignUp from './components/Admin/SignUp';
 
 
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     {
       path:'/signIn',
       element:<SignIn></SignIn>,
+    },
+    {
+      path:'/signUp',
+      element:<SignUp></SignUp>
     },
 
     {

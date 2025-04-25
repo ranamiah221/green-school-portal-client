@@ -12,64 +12,42 @@ const Main = () => {
 
     return (
         <>
-            <div className={ teacher ? "flex h-20 " : "flex h-20 justify-between shadow-xl"}>
+            <div className={teacher ? "flex h-20 " : "flex h-20 justify-between shadow-xl"}>
                 <div className="w-64 bg-red-400 p-2">
                     <img className="w-16" src={logo} alt="" />
                 </div>
 
-                {
-                    teacher ? 
-                    <>
-                    {
-                        dynamicHeader=="t_home"&& <h1 className="text-xl font-medium p-5">Good Morning</h1>
-                    }
-                    {
-                        dynamicHeader=="t_create"&& <h1 className="text-xl font-bold p-5">Create New </h1>
-                    }
-                    {
-                        dynamicHeader=="t_test"&& <h1 className="text-xl font-bold p-5">Test</h1>
-                    }
-                    {
-                        dynamicHeader=="t_result"&& <h1 className="text-xl font-bold p-5">Result</h1>
-                    }
-                    {
-                        dynamicHeader=="t_profile"&& <h1 className="text-xl font-bold p-5">Profile</h1>
-                    }
-                    {
-                        dynamicHeader=="create-questions"&& <h1 className="text-xl font-bold p-5">Create New </h1>
-                    }
-                    </> :
-                        <>
-                            <div className="flex-1/2 p-5  flex justify-between items-center">
-                                <input type="text" placeholder="Search " className="input" />
-                                <div className="flex justify-between items-center text-xl font-medium gap-3">
-                                    <FaRegMessage />
-                                    <IoMdNotificationsOutline />
-                                    <div className="dropdown dropdown-end">
-                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                            <div className="w-10 rounded-full">
-                                                <img
-                                                    alt="Tailwind CSS Navbar component"
-                                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                            </div>
-                                        </div>
-                                        <ul
-                                            tabIndex={0}
-                                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                            <li>
-                                                <Link to='/signIn'>Sign In</Link>
-                                            </li>
-                                            <li><a>Settings</a></li>
-                                            <li><a>Logout</a></li>
-                                        </ul>
-                                    </div>
+                <div className="flex-1/2 p-5  flex justify-between items-center">
+                    <input type="text" placeholder="Search " className="input" />
+                    <div className="flex justify-between items-center text-xl font-medium gap-3">
+                        <FaRegMessage />
+                        <IoMdNotificationsOutline />
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                 </div>
                             </div>
-                        </>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                <li>
+                                    <Link to='/signIn'>Sign In</Link>
 
+                                </li>
+                                <li>
+                                    <Link to='/signUp'>Sign Up</Link>
 
+                                </li>
 
-                }
+                                <li><a>Settings</a></li>
+                                <li><a>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
