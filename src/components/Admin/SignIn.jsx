@@ -3,6 +3,7 @@ import loginImage from '../../assets/animation/login.json'
 import SocialLogin from '../../Shared/SocialLogin';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
     const {signIn}= useAuth()
@@ -15,6 +16,13 @@ const SignIn = () => {
       const password = form.password.value;
       signIn(email, password)
       .then(res=>{
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "SignIn Successfull",
+            showConfirmButton: false,
+            timer: 1500
+          });
         navigate(location?.state ? location.state : '/')
       })
       .catch(err=>{

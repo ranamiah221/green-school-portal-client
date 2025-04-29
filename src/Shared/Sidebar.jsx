@@ -5,7 +5,7 @@ import { RiQuestionAnswerFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineWidgets } from "react-icons/md";
 const Sidebar = () => {
-    let isAdmin = true;
+    let isAdmin = false
     return (
         <div className=" text-white">
             <ul className="menu text-base font-medium">

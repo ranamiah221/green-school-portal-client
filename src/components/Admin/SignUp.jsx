@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import registerAnimation from '../../assets/animation/register.json'
 import SocialLogin from "../../Shared/SocialLogin";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
@@ -13,7 +14,13 @@ const SignUp = () => {
     const password = form.password.value;
     createUser(email, password)
     .then(res=>{
-        console.log("user create successfully",res)
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "SignUp successfull",
+            showConfirmButton: false,
+            timer: 1500
+          });
     })
     .catch(err=>{
         console.log(err)

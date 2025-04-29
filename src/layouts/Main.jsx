@@ -4,16 +4,23 @@ import logo from '../assets/green logo.png'
 import { FaRegMessage } from "react-icons/fa6";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const Main = () => {
     const { user, logOut } = useAuth()
-    console.log(user)
+    console.log(user?.email)
     const location = useLocation()
     let teacher = location.pathname.split('/')[1].split('_')[0];
     const handleLogout = () => {
         logOut()
-            .then(res)
+            .then(res=>{
+                Swal.fire({
+                    title: "logout user successfull",
+                    icon: "success",
+                    draggable: true
+                  });
+            })
             .catch(err => {
                 console.log(err)
             })
@@ -34,10 +41,15 @@ const Main = () => {
                         <IoMdNotificationsOutline />
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img
+                                <div className="w-10 rounded-full ">
+                                    {
+                                        user ? <>
+                                        <p className="text-xl uppercase bg-gray-500 flex items-center justify-center h-full">{user.email.slice(0,2).toUpperCase()}</p>
+                                        </>:<img
                                         alt="Tailwind CSS Navbar component"
                                         src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    }
+                                    
                                 </div>
                             </div>
                             <ul
