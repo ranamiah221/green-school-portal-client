@@ -1,30 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { FaPeoplePulling } from "react-icons/fa6";
+import useStudents from '../../hooks/useStudents';
+import useTeachers from '../../hooks/useTeachers';
+import teacherLogo from '../../assets/Group 3.png'
+
 
 const Dashboard = () => {
-
-    const [students, setStudent]=useState([]);
+    const [students]=useStudents();
+    const [teachers]=useTeachers();
     
-    
-    useEffect(()=>{
-        fetch('http://localhost:8000/students')
-        .then(res=>res.json())
-        .then(data =>{
-            setStudent(data)
-        })
-    },[])
     return (
-        <div>
+        <>
+        <div className='flex items-center justify-start gap-5'>
+            {/* Students */}
             <div className='w-64 bg-base-100 shadow h-32 text-xl font-medium rounded-lg text-center px-5 flex justify-between items-center'>
                 
                 <div className='text-2xl text-white w-20 h-20 rounded-full bg-purple-700 flex justify-center items-center'>
                 <FaPeoplePulling className='' />
                 </div>
                
-                <h2 className='border-l-2 px-2 border-green-500'>Student : <span>{students.length}</span></h2>
+                <h2 className='border-l-2 px-2 border-green-500'>Students : <span>{students.length}</span></h2>
 
             </div>
+            {/* teachers */}
+            <div className='w-64 bg-base-100 shadow h-32 text-xl font-medium rounded-lg text-center px-5 flex justify-between items-center'>
+                
+                <div className='text-2xl text-white w-20 h-20 rounded-full bg-purple-700 flex justify-center items-center'>
+                  <img src={teacherLogo} alt="" />
+                </div>
+               
+                <h2 className='border-l-2 px-2 border-green-500'>Teachers : <span>{teachers.length}</span></h2>
+
+            </div>
+
         </div>
+
+       
+        </>
     );
 };
 

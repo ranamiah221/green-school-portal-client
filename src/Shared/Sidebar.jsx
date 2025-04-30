@@ -56,7 +56,8 @@ const Sidebar = () => {
                                 <details close>
                                     <summary>Setting</summary>
                                     <ul>
-                                    <li><button onClick={()=>makeInterface(1)} className={({ isActive, isPending }) =>
+                                    <li>
+                                        <button onClick={()=>makeInterface(1)} className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Student Dashboard</button></li>
                                         <li><button onClick={()=>makeInterface(2)} className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Teacher Dashboard</button></li>

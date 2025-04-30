@@ -9,7 +9,6 @@ import Swal from "sweetalert2";
 
 const Main = () => {
     const { user, logOut } = useAuth()
-    console.log(user?.email)
     const location = useLocation()
     let teacher = location.pathname.split('/')[1].split('_')[0];
     const handleLogout = () => {
