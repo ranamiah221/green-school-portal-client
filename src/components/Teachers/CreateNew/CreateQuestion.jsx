@@ -2,10 +2,11 @@ import { useContext, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { LuArrowUpDown } from "react-icons/lu";
 import { RiDeleteBack2Line } from "react-icons/ri";
-import AuthContext from "../../../context/AuthContext";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { toast } from "react-toastify";
 
-const CreateQuestion = ({ onSave }) => {
-    const { user } = useContext(AuthContext)
+const CreateQuestion = () => {
+    const axiosSecure = useAxiosSecure();
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState(["", "", "", ""]);
     const [correctIndex, setCorrectIndex] = useState(null);
@@ -18,18 +19,29 @@ const CreateQuestion = ({ onSave }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const classes = e.target.classes.value;
         if (question && correctIndex !== null) {
-        const onSave=({
+            const onSave = ({
                 question,
                 options,
                 correctIndex,
+                classes
             });
-            console.log(onSave);
+            
             setQuestion("");
             setOptions(["", "", "", ""]);
             setCorrectIndex(null);
+            axiosSecure.post('/questions', onSave)
+            .then(res => {
+                if(res.data.insertedId){
+                    toast("question added successfully!") 
+                }
+            })
+            .catch(err=>{
+                console.log(err);
+            })
         };
-       
+
     }
     return (
         <div>
@@ -43,14 +55,26 @@ const CreateQuestion = ({ onSave }) => {
             </div>
             {/* Todo create post test.... */}
 
-            <form onSubmit={handleSubmit} className="p-4 border rounded">
-                <h2 className="text-xl font-bold mb-2">Create Question</h2>
+            <form onSubmit={handleSubmit} className="p-4 rounded">
+                <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-bold mb-2">Create Question</h2>
+                    <div className="flex justify-between items-center gap-5">
+                        <p className="text-base font-medium">Class</p>
+                        <select name='classes' defaultValue="6" className="select">
+                            <option value={'6'}>Six</option>
+                            <option value={'7'}>Saven</option>
+                            <option value={'8'}>Eight</option>
+                            <option value={'9'}>Nine</option>
+                            <option value={'10'}>Ten</option>
+                        </select>
+                    </div>
+                </div>
                 <input
                     type="text"
                     placeholder="Enter question"
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
-                    className="border p-2 mb-2 w-full"
+                    className="bg-[#F0EEED] rounded-lg mt-2 p-2 mb-2 w-full"
                     required
                 />
                 {options.map((opt, index) => (
@@ -60,7 +84,7 @@ const CreateQuestion = ({ onSave }) => {
                             placeholder={`Option ${index + 1}`}
                             value={opt}
                             onChange={(e) => handleOptionChange(index, e.target.value)}
-                            className="border p-2 mr-2 w-full"
+                            className="bg-[#F0EEED] rounded-lg p-2 mr-2 w-full"
                             required
                         />
                         <input
@@ -72,8 +96,8 @@ const CreateQuestion = ({ onSave }) => {
                         <span className="ml-1">Correct</span>
                     </div>
                 ))}
-                <button type="submit" className="bg-blue-500 text-white p-2 rounded">
-                    Save Question
+                <button type="submit" className="bg-[#14238A] text-white p-2 rounded">
+                    Save and add another
                 </button>
             </form>
 

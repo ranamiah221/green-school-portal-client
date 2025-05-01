@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import { ToastContainer, toast } from 'react-toastify';
 
 import {
   RouterProvider,
@@ -21,7 +22,8 @@ createRoot(document.getElementById('root')).render(
    <AuthProvider> 
    <QueryClientProvider client={queryClient}>
    <RouterProvider router={router} />
-    </QueryClientProvider>
+   <ToastContainer />
+  </QueryClientProvider>
 
     </AuthProvider>
   </StrictMode>,

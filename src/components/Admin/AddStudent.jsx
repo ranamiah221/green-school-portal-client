@@ -63,12 +63,7 @@ const AddStudent = () => {
                     </fieldset>
                     <fieldset>
                         <legend className="fieldset-legend">class*</legend>
-                        <select name='classes' defaultValue="1" className="select">
-                            <option value={'1'}>1</option>
-                            <option value={'2'}>2</option>
-                            <option value={'3'}>3</option>  
-                            <option value={'4'}>4</option>
-                            <option value={'5'}>5</option>
+                        <select name='classes' defaultValue="6" className="select">
                             <option value={'6'}>6</option>  
                             <option value={'7'}>7</option>
                             <option value={'8'}>8</option>

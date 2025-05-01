@@ -6,21 +6,20 @@ import { CgProfile } from "react-icons/cg";
 import { MdOutlineWidgets } from "react-icons/md";
 import { useState } from "react";
 const Sidebar = () => {
-    const [interFace, setInterface]=useState(0)
-    const makeInterface=(value)=>{
-      if(value ==0){
-       setInterface(value)
-      }
-      else if(value == 2){
-        setInterface(value)
-      }
+    // const [interFace, setInterface]=useState(0)
+    // const makeInterface=(value)=>{
+    //   if(value ==0){
+    //    setInterface(value)
+    //   }
+    //   else if(value == 2){
+    //     setInterface(value)
+    //   }
         
-    }
+    // }
     return (
         <div className=" text-white">
             <ul className="menu text-base font-medium">
-                {
-                    interFace == 0 && <>
+                    <>
                             <li><NavLink to='/' className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Dashboard</NavLink></li>
                             <li>
@@ -56,43 +55,15 @@ const Sidebar = () => {
                                 <details close>
                                     <summary>Setting</summary>
                                     <ul>
-                                    <li>
-                                        <button onClick={()=>makeInterface(1)} className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Student Dashboard</button></li>
-                                        <li><button onClick={()=>makeInterface(2)} className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Teacher Dashboard</button></li>
+                                         <li><NavLink to={'/teacher/t_home'} className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Teacher Dashboard</NavLink></li>
+                                <li><NavLink to={'/student/s_home'} className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Student Dashboard</NavLink></li>
 
                                     </ul>
                                 </details>
                             </li>
                         </>
-                   
-
-                }
-                {
-                     interFace == 2 && <>
-                    <li><NavLink to='/t_home' className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
-                        <FaHome /> Home</NavLink></li>
-                    <li><NavLink to='/t_test' className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
-                        <RiQuestionAnswerFill />Test</NavLink></li>
-                    <li><NavLink to='/t_result' className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
-                        <PiExamFill />Result</NavLink></li>
-                    <li><NavLink to='/t_profile' className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
-                        <CgProfile />Profile</NavLink></li>
-                    <li><NavLink to='/t_create' className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
-                        <MdOutlineWidgets />Create New</NavLink></li>
-
-                </>
-                }
-
-
-
-
             </ul>
 
         </div >
