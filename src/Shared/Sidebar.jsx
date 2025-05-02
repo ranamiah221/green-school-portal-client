@@ -1,10 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import { PiExamFill } from "react-icons/pi";
-import { RiQuestionAnswerFill } from "react-icons/ri";
-import { CgProfile } from "react-icons/cg";
-import { MdOutlineWidgets } from "react-icons/md";
-import { useState } from "react";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { PiStudentBold } from "react-icons/pi";
+import { MdSubject,MdAdd } from "react-icons/md";
+import { IoIosPersonAdd } from "react-icons/io";
+import { FaCloudMeatball,FaReplyAll, FaChalkboardTeacher  } from "react-icons/fa";
+import { IoSettingsSharp } from "react-icons/io5";
+import { GiTeacher } from "react-icons/gi";
+import { AiTwotoneNotification } from "react-icons/ai";
+
 const Sidebar = () => {
     // const [interFace, setInterface]=useState(0)
     // const makeInterface=(value)=>{
@@ -21,27 +24,27 @@ const Sidebar = () => {
             <ul className="menu text-base font-medium">
                     <>
                             <li><NavLink to='/' className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Dashboard</NavLink></li>
+                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}><LuLayoutDashboard />Dashboard</NavLink></li>
                             <li>
                                 <details close>
-                                    <summary>Students</summary>
+                                    <summary><PiStudentBold />Students</summary>
                                     <ul>
                                         <li><NavLink to={'/addStudent'} className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Add Student</NavLink></li>
+                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}><IoIosPersonAdd />Add Student</NavLink></li>
                                         <li><NavLink to={'/allStudents'} className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}>All Students</NavLink></li>
+                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}><FaCloudMeatball />All Students</NavLink></li>
 
                                     </ul>
                                 </details>
                             </li>
                             <li>
                                 <details close>
-                                    <summary>Teachers</summary>
+                                    <summary><FaChalkboardTeacher />Teachers</summary>
                                     <ul>
                                         <li><NavLink to={'/addTeacher'} className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Add Teacher</NavLink></li>
+                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}><MdAdd />Add Teacher</NavLink></li>
                                         <li><NavLink to={'/allTeachers'} className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}>All Teachers</NavLink></li>
+                                            isPending ? "pending" : isActive ? "bg-blue-400" : ""}><FaReplyAll />All Teachers</NavLink></li>
 
                                     </ul>
                                 </details>
@@ -49,16 +52,19 @@ const Sidebar = () => {
 
                             {/* subjects  */}
                             <li><NavLink to={'/subjects'} className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Subjects</NavLink></li>
+                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}><MdSubject />Subjects</NavLink></li>
+                            {/* setting */}
+                            <li><NavLink to={'/notice'} className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}><AiTwotoneNotification />Notice</NavLink></li>
                             {/* setting */}
                             <li>
                                 <details close>
-                                    <summary>Setting</summary>
+                                    <summary><IoSettingsSharp />Setting</summary>
                                     <ul>
                                          <li><NavLink to={'/teacher/t_home'} className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Teacher Dashboard</NavLink></li>
+                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}><GiTeacher />Teacher Dashboard</NavLink></li>
                                 <li><NavLink to={'/student/s_home'} className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}>Student Dashboard</NavLink></li>
+                                isPending ? "pending" : isActive ? "bg-blue-400" : ""}><PiStudentBold />Student Dashboard</NavLink></li>
 
                                     </ul>
                                 </details>

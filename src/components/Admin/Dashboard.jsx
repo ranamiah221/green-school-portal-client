@@ -3,6 +3,10 @@ import { FaPeoplePulling } from "react-icons/fa6";
 import useStudents from '../../hooks/useStudents';
 import useTeachers from '../../hooks/useTeachers';
 import teacherLogo from '../../assets/Group 3.png'
+import StudentNumber from './StudentNumber';
+import StudentCategory from './StudentCategory';
+import ShowNotice from './ShowNotice';
+import CalendarComponent from './CalendarComponent';
 
 
 const Dashboard = () => {
@@ -34,6 +38,19 @@ const Dashboard = () => {
             </div>
 
         </div>
+
+
+        {/* notice board */}
+        <div className='mt-10 flex justify-start  items-start gap-10'>
+            <ShowNotice></ShowNotice>
+            <CalendarComponent></CalendarComponent>
+        </div>
+        {/* recharts using.... */}
+        <div className='flex justify-evenly items-center'>
+             <StudentNumber></StudentNumber>
+             <StudentCategory></StudentCategory>
+        </div>
+        
 
        
         </>

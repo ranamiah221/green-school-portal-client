@@ -16,15 +16,17 @@ import CreateQuestion from '../Teachers/CreateNew/CreateQuestion';
 import SignUp from '../Admin/SignUp';
 import TeacherDashBoard from "../../layouts/TeacherDashBoard";
 import StudentDashBoard from "../../layouts/StudentDashBoard";
+import Notice from "../Admin/Notice";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element:<Main></Main>,
     children: [
       {
         path: '/',
-        element: <Dashboard></Dashboard>,
+        element:<Dashboard></Dashboard>,
       },
       {
         path: '/signIn',
@@ -34,7 +36,6 @@ const router = createBrowserRouter([
         path: '/signUp',
         element: <SignUp></SignUp>
       },
-
       {
         path: 'addStudent',
         element: <AddStudent></AddStudent>
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: 'subjects',
         element: <Subjects></Subjects>
+      },
+      {
+        path: 'notice',
+        element: <Notice></Notice>
       },
     ]
   },
@@ -122,7 +127,8 @@ const router = createBrowserRouter([
       },
 
     ]
-  }
+  },
+ 
 
 
 

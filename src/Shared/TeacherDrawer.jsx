@@ -2,7 +2,7 @@ import React from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { FaHome } from 'react-icons/fa';
 import { MdOutlineWidgets } from 'react-icons/md';
-import { PiExamFill } from 'react-icons/pi';
+import { PiExamFill, PiStudentBold } from 'react-icons/pi';
 import { RiQuestionAnswerFill } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 
@@ -26,6 +26,8 @@ const TeacherDrawer = () => {
                     <li><NavLink to={'/teacher/t_create'} className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
                         <MdOutlineWidgets />Create New</NavLink></li>
+                    <li><NavLink to={'/student/s_home'} className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "bg-blue-400" : ""}><PiStudentBold />Student Dashboard</NavLink></li>
                 </>
             </ul>
 

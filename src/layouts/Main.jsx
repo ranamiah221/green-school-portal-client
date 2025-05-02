@@ -32,7 +32,7 @@ const Main = () => {
                 <div className="w-64 bg-red-400 p-2">
                     <img className="w-16" src={logo} alt="" />
                 </div>
-
+            
                 <div className="flex-1/2 p-5  flex justify-between items-center">
                     <input type="text" placeholder="Search " className="input" />
                     <div className="flex justify-between items-center text-xl font-medium gap-3">
