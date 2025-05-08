@@ -17,6 +17,9 @@ import SignUp from '../Admin/SignUp';
 import TeacherDashBoard from "../../layouts/TeacherDashBoard";
 import StudentDashBoard from "../../layouts/StudentDashBoard";
 import Notice from "../Admin/Notice";
+import T_SignIn from "../Teachers/T_SignIn";
+import Tests from "../Teachers/Tests";
+import T_Profile from "../Teachers/T_Profile";
 
 
 const router = createBrowserRouter([
@@ -43,12 +46,12 @@ const router = createBrowserRouter([
       {
         path: 'allStudents',
         element: <AllStudents></AllStudents>,
-        loader: () => fetch('http://localhost:8000/students')
+        loader: () => fetch('green-school-portal-server.vercel.app/students')
       },
       {
         path: 'allStudents/:id',
         element: <Student></Student>,
-        loader: ({ params }) => fetch(`http://localhost:8000/students/${params.id}`)
+        loader: ({ params }) => fetch(`green-school-portal-server.vercel.app/students/${params.id}`)
       },
       {
         path: 'addTeacher',
@@ -57,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: 'allTeachers',
         element: <AllTeachers></AllTeachers>,
-        loader: () => fetch('http://localhost:8000/teachers')
+        loader: () => fetch('green-school-portal-server.vercel.app/teachers')
       },
       {
         path: 'subjects',
@@ -71,8 +74,7 @@ const router = createBrowserRouter([
   },
 
   // teacher dashBoard...
-
-  {
+ {
     path: 'teacher',
     element: <TeacherDashBoard></TeacherDashBoard>,
     children: [
@@ -82,15 +84,15 @@ const router = createBrowserRouter([
       },
       {
         path: 't_test',
-        element: <div>This is test page</div>
+        element: <Tests></Tests>
       },
       {
         path: 't_result',
-        element: <div>This is result page</div>
+        element: <div>result</div>
       },
       {
         path: 't_profile',
-        element: <div>This is profile page</div>
+        element: <T_Profile></T_Profile>
       },
 
       {
@@ -98,9 +100,14 @@ const router = createBrowserRouter([
         element: <CreateNew></CreateNew>
       },
       {
-        path: 'create-questions',
+        path: 't_create/create-questions',
         element: <CreateQuestion></CreateQuestion>
       },
+      {
+        path: 't_signIn',
+        element: <T_SignIn></T_SignIn>
+      },
+
 
     ]
   },

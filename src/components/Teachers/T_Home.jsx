@@ -1,9 +1,10 @@
+import StudentStatistic from "./StudentStatistic";
 
 
 const T_Home = () => {
     return (
         <div>
-            Home
+            <StudentStatistic></StudentStatistic>
         </div>
     );
 };

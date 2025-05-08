@@ -4,8 +4,10 @@ import { LuArrowUpDown } from "react-icons/lu";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
+import TeacherAuthContext from "../../../TeacherContext/TeacherAuthContext";
 
 const CreateQuestion = () => {
+    const {teacher}=useContext(TeacherAuthContext)
     const axiosSecure = useAxiosSecure();
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState(["", "", "", ""]);
@@ -25,7 +27,8 @@ const CreateQuestion = () => {
                 question,
                 options,
                 correctIndex,
-                classes
+                classes,
+                teacher
             });
             
             setQuestion("");

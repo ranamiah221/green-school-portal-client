@@ -2,17 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
 
 
-const useStudents = () => {
+const useNotice = () => {
     const axiosSecure = useAxiosSecure();
-    const {data: students=[], refetch}=useQuery({
-        queryKey:['students'],
+    const {data: notices=[], refetch}=useQuery({
+        queryKey:['notices'],
         queryFn: async ()=>{
-            const res = await axiosSecure('/students')
+            const res = await axiosSecure('/notices')
             return res.data
         }
     })
     
-    return [students]
+    return [notices, refetch]
 };
 
-export default useStudents;
+export default useNotice;

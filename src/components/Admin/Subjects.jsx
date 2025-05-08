@@ -75,7 +75,7 @@ const Subjects = () => {
                         </thead>
                         <tbody>
                             {
-                                subjects.map((subject)=>
+                                subjects?.map((subject)=>
                                  <tr key={subject._id}>
                                 <th>{subject?.subject}</th>
                                 <td>{subject?.teacher}</td>

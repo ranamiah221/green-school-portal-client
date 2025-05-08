@@ -50,9 +50,6 @@ const Dashboard = () => {
              <StudentNumber></StudentNumber>
              <StudentCategory></StudentCategory>
         </div>
-        
-
-       
         </>
     );
 };

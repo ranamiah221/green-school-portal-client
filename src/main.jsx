@@ -13,18 +13,18 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import TeacherAuthProvider from './TeacherContext/TeacherAuthProvider';
 
 const queryClient = new QueryClient()
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <AuthProvider> 
-   <QueryClientProvider client={queryClient}>
-   <RouterProvider router={router} />
-   <ToastContainer />
-  </QueryClientProvider>
-
+    <AuthProvider>
+      <TeacherAuthProvider><QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ToastContainer />
+      </QueryClientProvider></TeacherAuthProvider>
     </AuthProvider>
   </StrictMode>,
 )

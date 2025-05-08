@@ -14,7 +14,7 @@ const StudentCategory = () => {
         axiosSecure.get('/students')
             .then(res => {
                 const studentData = res.data;
-                const fakeStudentData = studentData.map(student => {
+                const fakeStudentData = studentData?.map(student => {
                     if (student.gender == "Male") {
                         sum = countMale +=1;
                         console.log(countMale);
@@ -51,7 +51,7 @@ return (
                 paddingAngle={5}
                 dataKey="value"
             >
-                {students.map((student, index) => (
+                {students?.map((student, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
             </Pie>

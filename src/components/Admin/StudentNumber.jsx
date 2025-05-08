@@ -48,7 +48,7 @@ const StudentNumber = () => {
         axiosSecure.get('/students')
         .then(res =>{
            const studentData = res.data;
-           const fakeStudentData = studentData.map(student=>{
+           const fakeStudentData = studentData?.map(student=>{
             const obj={
                 class: student.classes,
 

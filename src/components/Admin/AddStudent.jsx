@@ -25,7 +25,7 @@ const AddStudent = () => {
 
         const student ={name,gender, classes, birth,blood, religion,addmission,fatherName,
              motherName, email, phone, fatherOccupation, address, fatherReligion, photoURL};
-        fetch('http://localhost:8000/students', {
+        fetch('green-school-portal-server.vercel.app/students', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

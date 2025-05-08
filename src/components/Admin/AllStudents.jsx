@@ -22,7 +22,7 @@ const AllStudents = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:8000/students/${_id}`, {
+                fetch(`green-school-portal-server.vercel.app/students/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -65,7 +65,7 @@ const AllStudents = () => {
                     </thead>
                     <tbody>
                         {
-                            students.map((student, idx) => <tr key={student._id}>
+                            students?.map((student, idx) => <tr key={student._id}>
                                 <th>{idx + 1}</th>
                                 <td>{student.name}</td>
                                 <td>{student.gender}</td>

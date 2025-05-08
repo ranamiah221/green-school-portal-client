@@ -29,7 +29,7 @@ const AllTeachers = () => {
                     </thead>
                     <tbody>
                         {
-                            teachers.map((teacher, idx) => <tr key={teacher._id}>
+                            teachers?.map((teacher, idx) => <tr key={teacher._id}>
                                 <th>{idx + 1}</th>
                                 <td>{teacher.firstName} {teacher.firstName}</td>
                                 <td>{teacher.teacherGender}</td>
