@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
 
-
 const useSubject = () => {
     const axiosSecure=useAxiosSecure()
     const {data:subjects=[], refetch}=useQuery({

@@ -1,22 +1,23 @@
 import {
   createBrowserRouter,
 } from "react-router-dom";
-import Main from '../../layouts/Main';
-import Dashboard from '../Admin/Dashboard';
-import AddStudent from '../Admin/AddStudent';
-import AllStudents from '../Admin/AllStudents';
-import AddTeacher from '../Admin/AddTeacher';
-import AllTeachers from '../Admin/AllTeachers';
-import Student from '../Admin/Student';
-import SignIn from '../Admin/SignIn';
-import Subjects from '../Admin/Subjects';
+// import Main from '../../layouts/Main';
+// import Dashboard from '../Admin/Dashboard';
+// import AddStudent from '../Admin/AddStudent';
+// import AllStudents from '../Admin/AllStudents';
+// import AddTeacher from '../Admin/AddTeacher';
+// import AllTeachers from '../Admin/AllTeachers';
+// import Student from '../Admin/Student';
+// import SignIn from '../Admin/SignIn';
+// import Subjects from '../Admin/Subjects';
+import NowHome from '../../DefaultPage/NowHome';
 import T_Home from '../Teachers/T_Home';
 import CreateNew from '../Teachers/CreateNew/CreateNew';
 import CreateQuestion from '../Teachers/CreateNew/CreateQuestion';
-import SignUp from '../Admin/SignUp';
+// import SignUp from '../Admin/SignUp';
 import TeacherDashBoard from "../../layouts/TeacherDashBoard";
 import StudentDashBoard from "../../layouts/StudentDashBoard";
-import Notice from "../Admin/Notice";
+// import Notice from "../Admin/Notice";
 import T_SignIn from "../Teachers/T_SignIn";
 import Tests from "../Teachers/Tests";
 import T_Profile from "../Teachers/T_Profile";
@@ -24,57 +25,13 @@ import T_Profile from "../Teachers/T_Profile";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element:<Main></Main>,
-    children: [
-      {
-        path: '/',
-        element:<Dashboard></Dashboard>,
-      },
-      {
-        path: '/signIn',
-        element: <SignIn></SignIn>,
-      },
-      {
-        path: '/signUp',
-        element: <SignUp></SignUp>
-      },
-      {
-        path: 'addStudent',
-        element: <AddStudent></AddStudent>
-      },
-      {
-        path: 'allStudents',
-        element: <AllStudents></AllStudents>,
-        loader: () => fetch('green-school-portal-server.vercel.app/students')
-      },
-      {
-        path: 'allStudents/:id',
-        element: <Student></Student>,
-        loader: ({ params }) => fetch(`green-school-portal-server.vercel.app/students/${params.id}`)
-      },
-      {
-        path: 'addTeacher',
-        element: <AddTeacher></AddTeacher>
-      },
-      {
-        path: 'allTeachers',
-        element: <AllTeachers></AllTeachers>,
-        loader: () => fetch('green-school-portal-server.vercel.app/teachers')
-      },
-      {
-        path: 'subjects',
-        element: <Subjects></Subjects>
-      },
-      {
-        path: 'notice',
-        element: <Notice></Notice>
-      },
-    ]
+    path:'/',
+    element:<NowHome></NowHome>,
   },
+ 
 
-  // teacher dashBoard...
- {
+  // teacher dashBoard..
+  {
     path: 'teacher',
     element: <TeacherDashBoard></TeacherDashBoard>,
     children: [
@@ -142,3 +99,57 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
+
+ //   children:[
+  //   {
+  //   path: "dashboard",
+  //   element:<Main></Main>,
+  //   children: [
+  //     {
+  //       path: 'dashboard',
+  //       element:<Dashboard></Dashboard>,
+  //     },
+  //     {
+  //       path: '/signIn',
+  //       element: <SignIn></SignIn>,
+  //     },
+  //     {
+  //       path: '/signUp',
+  //       element: <SignUp></SignUp>
+  //     },
+  //     {
+  //       path: 'addStudent',
+  //       element: <AddStudent></AddStudent>
+  //     },
+  //     {
+  //       path: 'allStudents',
+  //       element: <AllStudents></AllStudents>,
+  //       loader: () => fetch('http://localhost:8000/students')
+  //     },
+  //     {
+  //       path: 'allStudents/:id',
+  //       element: <Student></Student>,
+  //       loader: ({ params }) => fetch(`http://localhost:8000/students/${params.id}`)
+  //     },
+  //     {
+  //       path: 'addTeacher',
+  //       element: <AddTeacher></AddTeacher>
+  //     },
+  //     {
+  //       path: 'allTeachers',
+  //       element: <AllTeachers></AllTeachers>,
+  //       loader: () => fetch('http://localhost:8000/teachers')
+  //     },
+  //     {
+  //       path: 'subjects',
+  //       element: <Subjects></Subjects>
+  //     },
+  //     {
+  //       path: 'notice',
+  //       element: <Notice></Notice>
+  //     },
+  //   ]
+  // },
+  //   ]
+  // },

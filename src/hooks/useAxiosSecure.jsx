@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecure = axios.create({
-    baseURL:'green-school-portal-server.vercel.app'
+    baseURL:'http://localhost:8000'
 })
 const useAxiosSecure = () => {
     return axiosSecure

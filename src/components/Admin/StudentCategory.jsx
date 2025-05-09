@@ -6,38 +6,38 @@ const COLORS = ["#0088FE", "#00C49F"];
 
 const StudentCategory = () => {
     const [students, setStudents] = useState([]);
-    let countMale=0;
-    let countFemale=0;
-    let sum = 0;
-    const axiosSecure = useAxiosSecure();
-    useEffect(() => {
-        axiosSecure.get('/students')
-            .then(res => {
-                const studentData = res.data;
-                const fakeStudentData = studentData?.map(student => {
-                    if (student.gender == "Male") {
-                        sum = countMale +=1;
-                        console.log(countMale);
-                        const obj = {
-                            value: sum,
-                        }
-                        return obj;
-                    }
-                    else if(student.gender =='Female'){
-                        sum = countFemale +=1;
-                        console.log(countFemale);
-                        const obj = {
-                            value: sum,
+    // let countMale=0;
+    // let countFemale=0;
+    // let sum = 0;
+    // const axiosSecure = useAxiosSecure();
+    // useEffect(() => {
+    //     axiosSecure.get('/students')
+    //         .then(res => {
+    //             const studentData = res.data;
+    //             const fakeStudentData = studentData?.map(student => {
+    //                 if (student.gender == "Male") {
+    //                     sum = countMale +=1;
+    //                     console.log(countMale);
+    //                     const obj = {
+    //                         value: sum,
+    //                     }
+    //                     return obj;
+    //                 }
+    //                 else if(student.gender =='Female'){
+    //                     sum = countFemale +=1;
+    //                     console.log(countFemale);
+    //                     const obj = {
+    //                         value: sum,
 
-                        }
-                        return obj;
-                    }
+    //                     }
+    //                     return obj;
+    //                 }
 
-                })
-                setStudents(fakeStudentData)
+    //             })
+    //             setStudents(fakeStudentData)
 
-            })
-    }, [])
+    //         })
+    // }, [])
 return (
     <>
         <PieChart width={400} height={300}>

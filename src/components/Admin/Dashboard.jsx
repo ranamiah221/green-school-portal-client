@@ -12,6 +12,7 @@ import CalendarComponent from './CalendarComponent';
 const Dashboard = () => {
     const [students]=useStudents();
     const [teachers]=useTeachers();
+    console.log(students, teachers);
     
     return (
         <>

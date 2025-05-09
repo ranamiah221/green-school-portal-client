@@ -43,22 +43,22 @@ const StudentNumber = () => {
     // const classSix =students.filter(student=> student.class =='6')
     // console.log(classSix);
     // console.log(students);
-    const axiosSecure = useAxiosSecure();
-    useEffect(()=>{
-        axiosSecure.get('/students')
-        .then(res =>{
-           const studentData = res.data;
-           const fakeStudentData = studentData?.map(student=>{
-            const obj={
-                class: student.classes,
+    // const axiosSecure = useAxiosSecure();
+    // useEffect(()=>{
+    //     axiosSecure.get('/students')
+    //     .then(res =>{
+    //        const studentData = res.data;
+    //        const fakeStudentData = studentData?.map(student=>{
+    //         const obj={
+    //             class: student.classes,
 
-            }
-            return obj;
-           })
-           setStudents(fakeStudentData)
+    //         }
+    //         return obj;
+    //        })
+    //        setStudents(fakeStudentData)
 
-        })
-    },[])
+    //     })
+    // },[])
     return (
         <div>
         <BarChart width={250} height={200} data={students}>

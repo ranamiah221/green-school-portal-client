@@ -23,7 +23,7 @@ const Sidebar = () => {
         <div className=" text-white">
             <ul className="menu text-base font-medium">
                     <>
-                            <li><NavLink to='/' className={({ isActive, isPending }) =>
+                            <li><NavLink to='dashbord' className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "bg-blue-400" : ""}><LuLayoutDashboard />Dashboard</NavLink></li>
                             <li>
                                 <details close>
