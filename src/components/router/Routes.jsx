@@ -8,7 +8,7 @@ import {
 // import AddTeacher from '../Admin/AddTeacher';
 // import AllTeachers from '../Admin/AllTeachers';
 // import Student from '../Admin/Student';
-// import SignIn from '../Admin/SignIn';
+import SignUp from '../Admin/SignUp';
 // import Subjects from '../Admin/Subjects';
 import NowHome from '../../DefaultPage/NowHome';
 import T_Home from '../Teachers/T_Home';
@@ -21,12 +21,22 @@ import StudentDashBoard from "../../layouts/StudentDashBoard";
 import T_SignIn from "../Teachers/T_SignIn";
 import Tests from "../Teachers/Tests";
 import T_Profile from "../Teachers/T_Profile";
+import SignInPages from "../../DefaultPage/SignInPages";
+
 
 
 const router = createBrowserRouter([
   {
     path:'/',
     element:<NowHome></NowHome>,
+  },
+  {
+    path:'sign-in-pages',
+    element:<SignInPages></SignInPages>,
+  },
+  {
+    path:'admin-register',
+    element:<SignUp></SignUp>,
   },
  
 

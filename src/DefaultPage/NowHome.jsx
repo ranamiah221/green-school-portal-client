@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import banner from '../assets/newBanner.jpg'
 
 const NowHome = () => {
@@ -16,9 +17,10 @@ const NowHome = () => {
                     ad vel iste quae, error ea neque molestias, et obcaecati quis temporibus repellendus possimus!
                      Nostrum exercitationem esse, quidem similique magni eius, molestiae quia, reprehenderit architecto
                       deleniti dolorem vel eligendi.</p>
-                <div className='mt-5'>
-                    <button className="rounded-lg border-b-4 mr-5 w-32 text-base font-medium border-b-amber-500 py-2 px-5 text-blue-500">Register</button>
-                    
+                <div className='mt-5 text-center'>
+                    {/* to do link to register page */}
+                    <Link to={'sign-in-pages'} className="rounded-lg border-b-4 mr-5 w-32 text-base font-medium border-b-amber-500 py-2 px-5 text-blue-500">Sign In</Link>
+                    <p className='mt-8'>Don't have an account?<Link to={'admin-register'} className='text-base font-medium text-blue-500'> Sign up</Link></p>
                 </div>
             </div>
 
