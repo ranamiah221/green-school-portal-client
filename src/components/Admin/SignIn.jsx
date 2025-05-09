@@ -9,6 +9,7 @@ const SignIn = () => {
     const {signIn}= useAuth()
     const location =useLocation()
     const navigate = useNavigate()
+    const state='/dashboard/home'
     const handleLogin =(e)=>{
         e.preventDefault()
       const form = e.target;
@@ -16,14 +17,18 @@ const SignIn = () => {
       const password = form.password.value;
       signIn(email, password)
       .then(res=>{
-        Swal.fire({
+        if(state =='/dashboard/home'){
+          Swal.fire({
             position: "top-end",
             icon: "success",
             title: "SignIn Successfull",
             showConfirmButton: false,
             timer: 1500
           });
-        navigate(location?.state ? location.state : '/')
+          navigate(state)
+        }
+
+        // to do navigate to go places......
       })
       .catch(err=>{
         console.log(err)
@@ -39,7 +44,7 @@ const SignIn = () => {
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <form onSubmit={handleLogin} className="card-body">
                     <fieldset className="fieldset">
-                        <h1 className="text-5xl text-center font-bold my-5">Login now!</h1>
+                        <h1 className="text-3xl text-center font-bold my-5">Admin Login</h1>
                         <label className="fieldset-label">Email</label>
                         <input type="email" name="email" className="input" placeholder="Email" />
                         <label className="fieldset-label">Password</label>

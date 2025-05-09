@@ -14,6 +14,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import TeacherAuthProvider from './TeacherContext/TeacherAuthProvider';
+import StudentAuthProvider from './components/StudentContext/StudentAuthProvider';
 
 const queryClient = new QueryClient()
 
@@ -22,10 +23,12 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <TeacherAuthProvider>
-        <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ToastContainer />
-      </QueryClientProvider>
+        <StudentAuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+            <ToastContainer />
+          </QueryClientProvider>
+        </StudentAuthProvider>
       </TeacherAuthProvider>
     </AuthProvider>
   </StrictMode>,

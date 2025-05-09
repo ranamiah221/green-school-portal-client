@@ -6,7 +6,7 @@ const Tests = () => {
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-        axios.get('green-school-portal-server.vercel.app/questions')
+        axios.get('http://localhost:8000/questions')
             .then(res => {
                 setQuestions(res.data)
             })

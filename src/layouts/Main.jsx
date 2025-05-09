@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Sidebar from "../Shared/Sidebar";
 import logo from '../assets/green logo.png'
 import { FaRegMessage } from "react-icons/fa6";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 const Main = () => {
     const { user, logOut } = useAuth()
     const location = useLocation()
+    const navigate = useNavigate();
     let teacher = location.pathname.split('/')[1].split('_')[0];
     const handleLogout = () => {
         logOut()
@@ -19,6 +20,7 @@ const Main = () => {
                     icon: "success",
                     draggable: true
                   });
+                  navigate('/')
             })
             .catch(err => {
                 console.log(err)
@@ -54,19 +56,9 @@ const Main = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-
                                 {
-                                    user ? <> <li className="btn btn-sm mb-2" onClick={handleLogout}>Logout</li> </> : <>
-                                        <li className="btn btn-sm mb-2">
-                                            <Link to='/signUp'>Sign Up</Link>
-                                        </li>
-                                        <li className="btn btn-sm mb-2">
-                                            <Link to='/signIn'>Sign In</Link>
-                                        </li>
-                                    </>
+                                    user ? <> <li className="btn btn-sm mb-2" onClick={handleLogout}>Logout</li> </> : <></>
                                 }
-
-
                                 <li className="btn btn-sm">Settings</li>
 
                             </ul>

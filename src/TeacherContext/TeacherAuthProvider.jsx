@@ -1,18 +1,17 @@
 import axios from "axios";
 import TeacherAuthContext from "./TeacherAuthContext";
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import auth from "../firebase/firebase.config";
+import {  useState } from "react";
+
 
 
 
 const TeacherAuthProvider = ({children}) => {
-    const [teacher, setTeacher]=useState()
+    const [teacher, setTeacher]=useState(null)
     const [loading, setLoading]=useState(true)
     
-    const signInTeacher=(phone, role)=>{
-        console.log(phone, role)
-        axios.get(`green-school-portal-server.vercel.app/teachers/${phone}`)
+    const signInTeacher=(email, password)=>{
+        
+        axios.get(`http://localhost:8000/teachers/${email}`)
         .then(res=>{
            setLoading(true)
            setTeacher(res.data)
@@ -23,6 +22,7 @@ const TeacherAuthProvider = ({children}) => {
     const info ={
         teacher,
         signInTeacher,
+        loading
     }
     return (
         <TeacherAuthContext.Provider value={info}>

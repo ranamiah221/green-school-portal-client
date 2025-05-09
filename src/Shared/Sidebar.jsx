@@ -23,15 +23,15 @@ const Sidebar = () => {
         <div className=" text-white">
             <ul className="menu text-base font-medium">
                     <>
-                            <li><NavLink to='dashbord' className={({ isActive, isPending }) =>
+                            <li><NavLink to='home' className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "bg-blue-400" : ""}><LuLayoutDashboard />Dashboard</NavLink></li>
                             <li>
                                 <details close>
                                     <summary><PiStudentBold />Students</summary>
                                     <ul>
-                                        <li><NavLink to={'/addStudent'} className={({ isActive, isPending }) =>
+                                        <li><NavLink to={'addStudent'} className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "bg-blue-400" : ""}><IoIosPersonAdd />Add Student</NavLink></li>
-                                        <li><NavLink to={'/allStudents'} className={({ isActive, isPending }) =>
+                                        <li><NavLink to={'allStudents'} className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "bg-blue-400" : ""}><FaCloudMeatball />All Students</NavLink></li>
 
                                     </ul>
@@ -41,9 +41,9 @@ const Sidebar = () => {
                                 <details close>
                                     <summary><FaChalkboardTeacher />Teachers</summary>
                                     <ul>
-                                        <li><NavLink to={'/addTeacher'} className={({ isActive, isPending }) =>
+                                        <li><NavLink to={'addTeacher'} className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "bg-blue-400" : ""}><MdAdd />Add Teacher</NavLink></li>
-                                        <li><NavLink to={'/allTeachers'} className={({ isActive, isPending }) =>
+                                        <li><NavLink to={'allTeachers'} className={({ isActive, isPending }) =>
                                             isPending ? "pending" : isActive ? "bg-blue-400" : ""}><FaReplyAll />All Teachers</NavLink></li>
 
                                     </ul>
@@ -51,10 +51,10 @@ const Sidebar = () => {
                             </li>
 
                             {/* subjects  */}
-                            <li><NavLink to={'/subjects'} className={({ isActive, isPending }) =>
+                            <li><NavLink to={'subjects'} className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "bg-blue-400" : ""}><MdSubject />Subjects</NavLink></li>
                             {/* setting */}
-                            <li><NavLink to={'/notice'} className={({ isActive, isPending }) =>
+                            <li><NavLink to={'notice'} className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "bg-blue-400" : ""}><AiTwotoneNotification />Notice</NavLink></li>
                             {/* setting */}
                             <li>

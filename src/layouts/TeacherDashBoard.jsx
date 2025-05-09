@@ -2,12 +2,34 @@ import React, { useContext } from 'react';
 import logo from '../assets/green logo.png'
 import { FaRegMessage } from 'react-icons/fa6';
 import { IoMdNotificationsOutline } from 'react-icons/io';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import TeacherDrawer from '../Shared/TeacherDrawer';
 import TeacherAuthContext from '../TeacherContext/TeacherAuthContext';
+import Swal from 'sweetalert2';
 
 const TeacherDashBoard = () => {
     const {teacher}=useContext(TeacherAuthContext);
+    const navigate = useNavigate();
+     const handleLogOut = () => {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to logout here!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Log Out!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/')
+                    Swal.fire({
+                        title: "Log Out",
+                        text: "Log out successfully.",
+                        icon: "success"
+                    });
+                }
+            });
+        }
     
     return (
         <>
@@ -43,11 +65,9 @@ const TeacherDashBoard = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                                        {
-                                        teacher ?  <li className="btn btn-sm mb-2">
+                                        teacher &&  <li onClick={()=>handleLogOut()} className="btn btn-sm mb-2">
                                         <Link to='t_signIn'>Log Out</Link>
-                                    </li> : <li className="btn btn-sm mb-2">
-                                            <Link to='t_signIn'>Sign In</Link>
-                                        </li>
+                                    </li> 
                                        }
                                        
 

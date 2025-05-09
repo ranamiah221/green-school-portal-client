@@ -8,19 +8,25 @@ import Swal from 'sweetalert2';
 
 const T_SignIn = () => {
     const {teacher,signInTeacher}=useContext(TeacherAuthContext);
-    
+    // const location = useLocation();
+    const state='/teacher/t_home';
+    const navigate= useNavigate()
+    // console.log(location?.state, state);
     const handleTeacherLogin = (e) => {
         e.preventDefault()
         const form = e.target;
-        const phone = form.phone.value;
-        const role = form.role.value;
-        signInTeacher(phone, role)
-        if(teacher.teacherPhone === phone){
-            Swal.fire("Teacher Login Successfull!");
+        const email = form.email.value;
+        const password = form.password.value;
+        signInTeacher(email, password)
+        if(teacher?.teacherEmail == email){
+            if(state=='/teacher/t_home'){
+               navigate(state)
+               Swal.fire("Teacher Sign in Successfull!");
+            }
+          
         }
-       
-
     }
+     
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
@@ -30,19 +36,12 @@ const T_SignIn = () => {
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <form onSubmit={handleTeacherLogin} className="card-body">
                         <fieldset className="fieldset">
-                            <h1 className="text-5xl text-center font-bold my-5">Sign In </h1>
-                            <label className="fieldset-label">Phone</label>
-                            <input type="text" name="phone" className="input" placeholder="Enter Your phone no:" />
-                            <fieldset>
-                                <legend className="fieldset-legend">Role*</legend>
-                                <select name='role' defaultValue="Teacher" className="select">
-                                    <option value={'Teacher'}>Teacher</option>
-                                    <option value={'Assistant Teacher'}>Assistant Teacher</option>
-                                    <option value={'Senior Lecturer'}>Senior Teacher</option>
-                                    <option value={'Assistant Head Teacher'}>Assistant Head Teacher</option>
-                                    <option value={'Head Teacher'}>Head Teacher</option>
-                                </select>
-                            </fieldset>
+                            <h1 className="text-3xl text-center font-bold my-5">Teacher Sign In</h1>
+                            <label className="fieldset-label">Email</label>
+                            <input type="email" name="email" className="input" placeholder="Enter Your Email" />
+                             <label className="fieldset-label">Password</label>
+                            <input type="password" name="password" className="input" placeholder="Enter Your Password" />
+
                             <button type="submit" className="btn btn-neutral mt-4">Sign In</button>
                         </fieldset>
 

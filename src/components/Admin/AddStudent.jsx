@@ -91,7 +91,7 @@ const AddStudent = () => {
                     </fieldset>
                     <fieldset>
                         <legend className="fieldset-legend">Addmission Date*</legend>
-                        <input type="date" name='addmission' className="input" placeholder="Enter your name " />
+                        <input type="date" name='addmission' className="input" placeholder="Addmission Date " />
                     </fieldset>
                 </div>
                 {/* parent info.... */}
