@@ -19,7 +19,7 @@ const AddTeacher = () => {
         const teacherPhotoURL = form.teacherPhotoURL.value;
         const subject = form.subject.value;
         const teacher = { firstName, lastName, teacherGender, teacherBirth, teacherBlood, teacherReligion, teacherEmail, teacherPhone, teacherAddress, role, entry,subject, teacherPhotoURL,  };
-        fetch('green-school-portal-server.vercel.app/teachers', {
+        fetch('http://localhost:8000/teachers', {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

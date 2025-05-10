@@ -14,9 +14,9 @@ const StudentDrawer = () => {
                     <li><NavLink to={'/student/s_home'} className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
                         <FaHome /> Home</NavLink></li>
-                    <li><NavLink to={'/student/s_test'} className={({ isActive, isPending }) =>
+                    {/* <li><NavLink to={'/student/s_test'} className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
-                        <RiQuestionAnswerFill />Test</NavLink></li>
+                        <RiQuestionAnswerFill />Test</NavLink></li> */}
                     <li><NavLink to={'/student/on_going_test'} className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "bg-blue-900" : ""}>
                         <PiExamFill />Ongoing Test</NavLink></li>

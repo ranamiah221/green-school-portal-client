@@ -7,49 +7,56 @@ import { toast } from "react-toastify";
 import TeacherAuthContext from "../../../TeacherContext/TeacherAuthContext";
 
 const CreateQuestion = () => {
-    const {teacher}=useContext(TeacherAuthContext)
+    const { teacher } = useContext(TeacherAuthContext)
+  
     const axiosSecure = useAxiosSecure();
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState(["", "", "", ""]);
     const [correctIndex, setCorrectIndex] = useState(null);
-
+    const teacherName = teacher.firstName +" "+ teacher.lastName;
+ 
     const handleOptionChange = (index, value) => {
         const newOptions = [...options];
         newOptions[index] = value;
         setOptions(newOptions);
     };
 
-    const handleSubmit = (e) => {
+    const handleAdd = (e) => {
         e.preventDefault();
         const classes = e.target.classes.value;
+        const quiz = e.target.quiz.value;
         if (question && correctIndex !== null) {
             const onSave = ({
                 question,
                 options,
                 correctIndex,
                 classes,
-                teacher
+                quiz,
+                teacherName
+
             });
-            
+
+console.log(onSave);
             setQuestion("");
             setOptions(["", "", "", ""]);
             setCorrectIndex(null);
             axiosSecure.post('/questions', onSave)
-            .then(res => {
-                if(res.data.insertedId){
-                    toast("question added successfully!") 
-                }
-            })
-            .catch(err=>{
-                console.log(err);
-            })
+                .then(res => {
+                    if (res.data.insertedId) {
+                        toast("question added successfully!")
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         };
 
     }
+
     return (
         <div>
             <div className='bg-[#F0EEED] flex justify-between items-center rounded-lg p-2'>
-                <h3 className="text-base font-normal">Page 1</h3>
+                <h3 className="text-base font-normal">Create New Questions</h3>
                 <div className="flex gap-2">
                     <LuArrowUpDown />
                     <FaEdit />
@@ -58,9 +65,19 @@ const CreateQuestion = () => {
             </div>
             {/* Todo create post test.... */}
 
-            <form onSubmit={handleSubmit} className="p-4 rounded">
+            <form onSubmit={handleAdd} className="p-4 rounded">
                 <div className="flex items-center justify-between">
                     <h2 className="text-xl font-bold mb-2">Create Question</h2>
+                    <div className="flex justify-between items-center gap-5">
+                        <p className="text-base font-medium">Title</p>
+                        <select name='quiz' defaultValue="1" className="select">
+                            <option value={'1'}>Quiz1</option>
+                            <option value={'2'}>Quiz2</option>
+                            <option value={'3'}>Quiz3</option>
+                            
+                        </select>
+                    </div>
+
                     <div className="flex justify-between items-center gap-5">
                         <p className="text-base font-medium">Class</p>
                         <select name='classes' defaultValue="6" className="select">
@@ -100,8 +117,9 @@ const CreateQuestion = () => {
                     </div>
                 ))}
                 <button type="submit" className="bg-[#14238A] text-white p-2 rounded">
-                    Save and add another
+                    Add and Save
                 </button>
+
             </form>
 
         </div>

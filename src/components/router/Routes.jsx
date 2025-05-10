@@ -23,6 +23,10 @@ import Tests from "../Teachers/Tests";
 import T_Profile from "../Teachers/T_Profile";
 import SignInPages from "../../DefaultPage/SignInPages";
 import S_SignIn from "../Students/S_SignIn";
+import S_profile from "../Students/S_profile";
+import OnGoingTest from "../Students/OnGoingTest";
+import S_Home from "../Students/S_Home";
+
 
 
 const router = createBrowserRouter([
@@ -123,6 +127,8 @@ const router = createBrowserRouter([
         path: 't_signIn',
         element: <T_SignIn></T_SignIn>
       },
+       
+      
 
 
     ]
@@ -139,7 +145,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 's_home',
-        element: <div>students homes</div>
+        element: <S_Home></S_Home>
       },
       {
         path: 's_test',
@@ -147,11 +153,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'on_going_test',
-        element: <div>students on going test data</div>
+        element: <OnGoingTest></OnGoingTest>
       },
       {
         path: 's_profile',
-        element: <div>students homes profile</div>
+        element: <S_profile></S_profile>
       },
 
     ]

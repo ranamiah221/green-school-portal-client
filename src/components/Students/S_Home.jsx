@@ -1,9 +1,18 @@
-import React from 'react';
+
+import CalendarComponent from "../Admin/CalendarComponent";
+import ShowNotice from "../Admin/ShowNotice";
+import AvgReportChart from "./AvgReportChart";
+
 
 const S_Home = () => {
     return (
         <div>
-            hello
+           <AvgReportChart></AvgReportChart>
+           <div className="className='mt-10 flex justify-start  items-start gap-10 mt-10">
+            <ShowNotice></ShowNotice>
+            <CalendarComponent></CalendarComponent>
+           </div>
+           
         </div>
     );
 };

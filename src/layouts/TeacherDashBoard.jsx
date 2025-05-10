@@ -8,29 +8,29 @@ import TeacherAuthContext from '../TeacherContext/TeacherAuthContext';
 import Swal from 'sweetalert2';
 
 const TeacherDashBoard = () => {
-    const {teacher}=useContext(TeacherAuthContext);
+    const { teacher } = useContext(TeacherAuthContext);
     const navigate = useNavigate();
-     const handleLogOut = () => {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You want to logout here!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Log Out!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    navigate('/')
-                    Swal.fire({
-                        title: "Log Out",
-                        text: "Log out successfully.",
-                        icon: "success"
-                    });
-                }
-            });
-        }
-    
+    const handleLogOut = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to logout here!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Log Out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/')
+                Swal.fire({
+                    title: "Log Out",
+                    text: "Log out successfully.",
+                    icon: "success"
+                });
+            }
+        });
+    }
+
     return (
         <>
             <div className={"flex h-20  justify-between shadow-xl"}>
@@ -39,7 +39,9 @@ const TeacherDashBoard = () => {
                 </div>
 
                 <div className="flex-1/2 p-5  flex justify-between items-center">
-                    <input type="text" placeholder="Search " className="input" />
+                    <div><h1 className='text-xl font-bold'>Teacher Dashboard</h1>
+                    <h3 className='text-base font-medium'>{teacher.firstName} {teacher.lastName}</h3>
+                    </div>
                     <div className="flex justify-between items-center text-xl font-medium gap-3">
                         <FaRegMessage />
                         <IoMdNotificationsOutline />
@@ -48,15 +50,15 @@ const TeacherDashBoard = () => {
                                 <div className="w-10 rounded-full ">
                                     {
                                         teacher ? <>
-                                          <p className="text-xl uppercase bg-gray-500 flex items-center justify-center h-full">{teacher?.firstName?.slice(0,2).toUpperCase()}</p>
+                                            <p className="text-xl uppercase bg-gray-500 flex items-center justify-center h-full">{teacher?.firstName?.slice(0, 2).toUpperCase()}</p>
                                         </>
-                                        :
-                                        <img
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                            :
+                                            <img
+                                                alt="Tailwind CSS Navbar component"
+                                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                     }
 
-                                  
+
 
 
                                 </div>
@@ -64,12 +66,12 @@ const TeacherDashBoard = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                       {
-                                        teacher &&  <li onClick={()=>handleLogOut()} className="btn btn-sm mb-2">
-                                        <Link to='t_signIn'>Log Out</Link>
-                                    </li> 
-                                       }
-                                       
+                                {
+                                    teacher && <li onClick={() => handleLogOut()} className="btn btn-sm mb-2">
+                                        <Link>Log Out</Link>
+                                    </li>
+                                }
+
 
                             </ul>
                         </div>

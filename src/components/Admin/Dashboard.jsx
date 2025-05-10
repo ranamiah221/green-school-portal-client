@@ -42,14 +42,17 @@ const Dashboard = () => {
 
 
         {/* notice board */}
-        <div className='mt-10 flex justify-start  items-start gap-10'>
-            <ShowNotice></ShowNotice>
-            <CalendarComponent></CalendarComponent>
+        <div className='mt-10 flex justify-start item-center gap-10'>
+            
+            <StudentCategory></StudentCategory>
+            <StudentNumber></StudentNumber>
         </div>
         {/* recharts using.... */}
-        <div className='flex justify-evenly items-center'>
-             <StudentNumber></StudentNumber>
-             <StudentCategory></StudentCategory>
+        <div className='flex justify-evenly items-center mt-8'>
+            <ShowNotice></ShowNotice>
+            <CalendarComponent></CalendarComponent>
+             
+            
         </div>
         </>
     );
